@@ -4,6 +4,7 @@ Identitas diri:
 
 -   Nama: Erki Kadhafi Rosyid
 -   NRP: 05111940000050
+
 ## Nama Benda
 
 Benda yang saya foto adalah "Kotak Lampu" diawali dengan huruf K.
@@ -12,16 +13,16 @@ Benda yang saya foto adalah "Kotak Lampu" diawali dengan huruf K.
 
 ### Tampak depan atas
 
-![images](images/depan_atas.png)
+![Depan atas](images/depan_atas.jpg)
 
 ### Tampak kanan atas
 
-![images](images/kanan_atas.png)
+![Kanan atas](images/kanan_atas.jpg)
 
 ### Tampak belakang atas
 
-![images](images/belakang_atas.png)
+![Belakang atas](images/belakang_atas.jpg)
 
 ### Tampak kiri atas
 
-![images](images/kiri_atas.png)
+![Kiri atas](images/kiri_atas.jpg)
