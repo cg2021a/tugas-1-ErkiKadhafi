@@ -12,16 +12,16 @@ Benda yang saya foto adalah "Kotak Lampu" diawali dengan huruf K.
 
 ### Tampak depan atas
 
-![Depan atas](images/depan_atas.png)
+![images](images/depan_atas.png)
 
 ### Tampak kanan atas
 
-![Kanan atas](images/kanan_atas.png)
+![images](images/kanan_atas.png)
 
 ### Tampak belakang atas
 
-![Belakang atas](images/belakang_atas.png)
+![images](images/belakang_atas.png)
 
 ### Tampak kiri atas
 
-![Kiri atas](images/kiri_atas.png)
+![images](images/kiri_atas.png)
