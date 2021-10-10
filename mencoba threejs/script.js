@@ -13,43 +13,80 @@ function main() {
     scene.background = new THREE.Color(0x00000);
 
     let lights = [];
-    const directLight1 = new THREE.DirectionalLight(0xffffff, 1);
-    const directLight2 = new THREE.DirectionalLight(0xffffff, 1);
-    const pointLight1 = new THREE.PointLight(0xffffff, 1);
-    const pointLight2 = new THREE.PointLight(0xffffff, 1);
-    const ambientLight1 = new THREE.AmbientLight(0xffffff, 1);
-    const ambientLight2 = new THREE.AmbientLight(0xffffff, 1);
-    directLight1.position.set(-1, 2, 4);
-    directLight2.position.set(1, -2, -4);
-    pointLight1.position.set(-1, 2, 4);
-    pointLight2.position.set(1, -2, -4);
-    ambientLight1.position.set(-1, 2, 4);
-    ambientLight2.position.set(1, -2, -4);
+    const directLight1 = new THREE.DirectionalLight(0xff9900, 1);
+    const directLight2 = new THREE.DirectionalLight(0xff9900, 1);
+    const directLight3 = new THREE.DirectionalLight(0x0088ff, 1);
+    const directLight4 = new THREE.DirectionalLight(0x00ff88, 1);
+
+    const pointLight1 = new THREE.PointLight(0xff9900, 1);
+    const pointLight2 = new THREE.PointLight(0xff2200, 1);
+    const pointLight3 = new THREE.PointLight(0x0088ff, 1);
+    const pointLight4 = new THREE.PointLight(0x00ff88, 1);
+
+    const spotLight1 = new THREE.SpotLight(0xff9900, 2, 200, 0.5, 0.25);
+    const spotLight2 = new THREE.SpotLight(0xff2200, 2, 200, 0.5, 0.25);
+    const spotLight3 = new THREE.SpotLight(0x0088ff, 2, 200, 0.5, 0.25);
+    const spotLight4 = new THREE.SpotLight(0x00ff88, 2, 200, 0.5, 0.25);
+
+    directLight1.position.set(6, 2, 0);
+    directLight1.target.position.set(0, 0, 0);
+    directLight2.position.set(-6, 2, 0);
+    directLight2.target.position.set(0, 0, 0);
+    directLight3.position.set(0, 2, 6);
+    directLight3.target.position.set(0, 0, 0);
+    directLight2.position.set(0, 2, -6);
+    directLight4.target.position.set(0, 0, 0);
+
+    pointLight1.position.set(100, 0, 0);
+    pointLight2.position.set(-100, 0, 0);
+    pointLight3.position.set(0, 0, 100);
+    pointLight4.position.set(0, 0, -100);
+
+    spotLight1.position.set(100, 1, 100);
+    spotLight1.target.position.set(1, -3, 1);
+    spotLight2.position.set(-100, 1, 100);
+    spotLight2.target.position.set(-1, -3, 1);
+    spotLight3.position.set(100, 1, -100);
+    spotLight3.target.position.set(1, -3, -1);
+    spotLight4.position.set(-100, 1, -100);
+    spotLight4.target.position.set(-1, -3, -1);
+
     lights.push(directLight1);
     lights.push(directLight2);
+    lights.push(directLight3);
+    lights.push(directLight4);
+
     lights.push(pointLight1);
     lights.push(pointLight2);
-    lights.push(ambientLight1);
-    lights.push(ambientLight2);
+    lights.push(pointLight3);
+    lights.push(pointLight4);
+
+    lights.push(spotLight1);
+    lights.push(spotLight2);
+    lights.push(spotLight3);
+    lights.push(spotLight4);
 
     lights.forEach((light) => {
         scene.add(light);
         light.visible = false;
     });
-    // scene.add(lights[0]);
-    // scene.add(lights[1]);
+
     lights[0].visible = true;
     lights[1].visible = true;
+    lights[2].visible = true;
+    lights[3].visible = true;
 
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button, index1) => {
         button.addEventListener("click", () => {
             buttons.forEach((button, index2) => {
-                let indexLight = (index2 + 1) * 2;
+                let indexLight = (index2 + 1) * 4;
                 if (button.classList.contains("active")) {
                     button.classList.remove("active");
                 }
                 if (index2 !== index1) {
+                    lights[indexLight - 4].visible = false;
+                    lights[indexLight - 3].visible = false;
                     lights[indexLight - 2].visible = false;
                     lights[indexLight - 1].visible = false;
                     console.log(indexLight - 2);
@@ -58,7 +95,9 @@ function main() {
                 }
             });
             button.classList.toggle("active");
-            let indexLight = (index1 + 1) * 2;
+            let indexLight = (index1 + 1) * 4;
+            lights[indexLight - 4].visible = true;
+            lights[indexLight - 3].visible = true;
             lights[indexLight - 2].visible = true;
             lights[indexLight - 1].visible = true;
         });
@@ -76,10 +115,10 @@ function main() {
     }
 
     function createMaterial(material) {
-        const hue = Math.random();
-        const saturation = 1;
-        const luminance = 0.5;
-        material.color.setHSL(hue, saturation, luminance);
+        // const hue = Math.random();
+        // const saturation = 1;
+        // const luminance = 0.5;
+        // material.color.setHSL(hue, saturation, luminance);
 
         return material;
     }
@@ -99,8 +138,9 @@ function main() {
             2,
             new THREE.BoxGeometry(width, height, depth),
             createMaterial(
-                new THREE.MeshStandardMaterial({
-                    side: THREE.DoubleSide,
+                new THREE.MeshPhongMaterial({
+                    color: 0x262626,
+                    shininess: 150,
                 })
             )
         );
@@ -115,8 +155,9 @@ function main() {
             -2,
             new THREE.BoxGeometry(width, height, depth),
             createMaterial(
-                new THREE.MeshStandardMaterial({
-                    side: THREE.DoubleSide,
+                new THREE.MeshPhongMaterial({
+                    color: 0x262626,
+                    shininess: 150,
                 })
             )
         );
@@ -138,8 +179,10 @@ function main() {
             ),
             createMaterial(
                 new THREE.MeshPhongMaterial({
+                    color: 0x00ff88,
                     side: THREE.DoubleSide,
                     wireframe: true,
+                    shininess: 150,
                 })
             )
         );
@@ -153,8 +196,11 @@ function main() {
             0,
             new THREE.DodecahedronGeometry(radius, detail),
             createMaterial(
-                new THREE.MeshLambertMaterial({
+                new THREE.MeshPhongMaterial({
+                    color: 0x00ff88,
                     side: THREE.DoubleSide,
+                    wireframe: true,
+                    shininess: 150,
                 })
             )
         );
@@ -168,8 +214,11 @@ function main() {
             0,
             new THREE.DodecahedronGeometry(radius, detail),
             createMaterial(
-                new THREE.MeshLambertMaterial({
+                new THREE.MeshPhongMaterial({
+                    color: 0x00ff88,
                     side: THREE.DoubleSide,
+                    wireframe: true,
+                    shininess: 150,
                 })
             )
         );
@@ -197,6 +246,7 @@ function main() {
                 new THREE.MeshStandardMaterial({
                     side: THREE.DoubleSide,
                     roughness: 1,
+                    shininess: 150,
                 })
             )
         );
@@ -224,12 +274,13 @@ function main() {
                 new THREE.MeshStandardMaterial({
                     side: THREE.DoubleSide,
                     roughness: 1,
+                    shininess: 150,
                 })
             )
         );
     }
 
-    //make lathe 1
+    //make plane 1
     {
         const width = 100;
         const height = 5;
@@ -239,9 +290,11 @@ function main() {
             -3,
             new THREE.BoxGeometry(width, height, depth),
             createMaterial(
-                new THREE.MeshPhongMaterial({
+                new THREE.MeshStandardMaterial({
+                    roughness: 0.55,
+                    metalness: 1,
                     side: THREE.DoubleSide,
-                    shininess: 150,
+                    emissive: 0x454545,
                 })
             )
         );
