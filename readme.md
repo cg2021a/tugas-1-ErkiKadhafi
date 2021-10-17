@@ -17,6 +17,10 @@ Pada tugas 1 kami diminta membuat aplikasi Grafika WebGL berdasarkan gambar yang
 
 Membuat beberapa objek pada ThreeJS solid dan wireframe dengan material dan lighting berbeda. [link website](https://romantic-easley-064216.netlify.app/)
 
+## Tugas Mencoba ThreeJS
+
+Membuat website dengan sistem seperti onet, dimana terdapat banyak bola dengan warna berbeda dan jika dua bola dengan warna sama diklik maka, kedua bola akan menghilang dan menambah score. [link website](https://brave-liskov-6fe7da.netlify.app/)
+
 ## Foto Benda
 
 ### Tampak depan atas
