@@ -89,9 +89,9 @@ function main() {
         const radius = 5.0;
         const detail = 5;
         addGeometry(
-            xPos - 2.5,
-            yPos - 2,
-            zPos - 2.5,
+            xPos - 2.5 + Math.random() / 2,
+            yPos - 2 + Math.random() / 2,
+            zPos - 2.5 + Math.random() / 2,
             25,
             new THREE.DodecahedronGeometry(radius, detail),
             new THREE.MeshPhongMaterial({
