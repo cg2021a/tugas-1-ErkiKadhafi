@@ -21,6 +21,10 @@ Membuat beberapa objek pada ThreeJS solid dan wireframe dengan material dan ligh
 
 Membuat website dengan sistem seperti onet, dimana terdapat banyak bola dengan warna berbeda dan jika dua bola dengan warna sama diklik maka, kedua bola akan menghilang dan menambah score. [link website](https://brave-liskov-6fe7da.netlify.app/)
 
+## Tugas Melakukan Interaksi Object
+
+Pada tugas ini diberikan tugas untuk mencoba membuat website yang menggunakan panorama, texture, loading object, orbit control, fog, realistic reflective dan shadows. Untuk pengerjaannya saya membagi 2 dengan panorama dan realistic reflective dijadikan 1 file dengan link [link website](https://tender-einstein-0f600a.netlify.app/) dan untuk shadow, loading object, texture, orbit control dan fog dijadikan 1 file dengan link [link website](https://brave-murdock-887ad0.netlify.app/)
+
 ## Foto Benda
 
 ### Tampak depan atas
